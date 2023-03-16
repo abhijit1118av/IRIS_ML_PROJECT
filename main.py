@@ -2,9 +2,10 @@ from flask import Flask,render_template,request
 import pickle
 import json 
 import numpy as np
-with open('artifacts/model.pkl','rb') as file:
+import CONFIG
+with open(CONFIG.model_path,'rb') as file:
     model=pickle.load(file)
-with open('artifacts/asset.json',"r") as file:
+with open(CONFIG.asset_path,"r") as file:
     asset=json.load(file)
 
 app=Flask(__name__)
@@ -39,4 +40,4 @@ def integrate():
 
 
 if __name__=="__main__":
-    app.run(debug=False,host="0.0.0.0",port=8000)
+    app.run(host=CONFIG.host_name,port=CONFIG.port_value)
