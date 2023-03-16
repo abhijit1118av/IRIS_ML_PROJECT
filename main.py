@@ -2,7 +2,7 @@ from flask import Flask,render_template,request
 import pickle
 import json 
 import numpy as np
-import CONFIG
+import CONFIG 
 with open(CONFIG.model_path,'rb') as file:
     model=pickle.load(file)
 with open(CONFIG.asset_path,"r") as file:
@@ -40,4 +40,4 @@ def integrate():
 
 
 if __name__=="__main__":
-    app.run(host=CONFIG.host_name,port=CONFIG.port_value)
+    app.run(host=CONFIG.host_name,port=CONFIG.port_value,debug=True)
